@@ -28,6 +28,17 @@
   color: #61dafb;
 }
 
+.card-img-top{
+  width : 65% !important ;
+  margin: 25px 50px;
+}
+
+.card{
+  padding: 1.5em 0.5em 1.5em;
+  border-radius: 1em;
+}
+
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
