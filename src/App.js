@@ -10,6 +10,11 @@ import UserLogin from './components/UserLogin';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import CoachHome from './components/CoachHome';
+import CoachSchedules from './components/CoachSchedules';
+import UserAppointments from './components/UserAppointments';
+import UserHome from './components/UserHome';
+import UserViewProfile from './components/UserViewProfile';
+import CoachViewProfile from './components/CoachViewProfile';
 
 function App() {
   return (
@@ -24,6 +29,11 @@ function App() {
           <Route exact path="/UserSignup" element={<UserSignup/>}/>
           <Route exact path='/UserLogin' element={<UserLogin/>}/>
           <Route exact path='/CoachHome' element={<CoachHome/>}/>
+          <Route exact path='/CoachSchedules' element={<CoachSchedules/>}/>
+          <Route exact path='/UserAppointments' element={<UserAppointments/>}/>
+          <Route exact path='/UserHome' element={<UserHome/>}/>
+          <Route exact path='CoachViewProfile' element={<CoachViewProfile/>}/>
+          <Route exact path='/UserViewProfile' element={<UserViewProfile/>}/>
           <Route path="*" element={<p>Path not resolved</p>} />
         </Routes>
         <Footer/>

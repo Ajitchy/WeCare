@@ -62,8 +62,11 @@ export default function UserSignup() {
         if (city.trim().length < 3 || city.trim().length > 20) {
             errors.City = 'City should have 3 to 20 characters';
         }
+        if (state.trim().length < 3 || state.trim().length > 20){
+            errors.state = 'State should have 3 to 20 Characters'
+        }
         if (country.trim().length < 3 || country.trim().length > 20) {
-            errors.Country = 'Country should have 3 to 30 characters'
+            errors.country = 'Country should have 3 to 20 characters'
         }
         return errors;
 
@@ -185,7 +188,7 @@ export default function UserSignup() {
                         <div className="col-md-6 text-left">
                             <label htmlFor="validationCustom09" className="form-label">Country</label>
                             <input value={country} onChange={e => setCountry(e.target.value)} type="text" className="form-control" id="validationCustom09" />
-                            <span className='text-danger'>{validationErrors.Country}</span>
+                            <span className='text-danger'>{validationErrors.country}</span>
                         </div>
 
                         <div className="d-grid">

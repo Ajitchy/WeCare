@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { useDispatch } from 'react-redux';
 
 export default function CoachLogin() {
   const [coachId, setCoachId] = useState('');
@@ -9,6 +10,7 @@ export default function CoachLogin() {
   const [errorMessage, setErrorMessage] = useState('');
   const [loginStatus, setLoginStatus] = useState(null); // null means no success no error
   const navigate = useNavigate();
+  const dispatch = useDispatch(); // use of redux
 
   const validateForm = () => {
     const errors = {};
@@ -37,6 +39,8 @@ export default function CoachLogin() {
             if (resp[0].password === password) {
               toast.success('Login Successful');
               setLoginStatus('success');
+              dispatch({ type: 'SET_USER_TYPE', payload: 'coach' }); // redux dispatch update
+              console.log(dispatch);
               navigate('/CoachHome');
             } else {
               toast.error('Invalid Credentials');

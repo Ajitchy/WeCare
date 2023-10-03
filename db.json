@@ -108,6 +108,27 @@
       "userId": 1,
       "coachId": 1,
       "id": 1
+    },
+    {
+      "appointmentDate": "2023-09-24",
+      "slot": "10 AM to 11 AM",
+      "userId": 1,
+      "coachId": 1,
+      "id": 2
+    },
+    {
+      "appointmentDate": "2023-10-24",
+      "slot": "10 AM to 11 AM",
+      "userId": 1,
+      "coachId": 1,
+      "id": 3
+    },
+    {
+      "appointmentDate": "2023-10-20",
+      "slot": "10 AM to 11 AM",
+      "userId": 1,
+      "coachId": 1,
+      "id": 4
     }
   ]
 }

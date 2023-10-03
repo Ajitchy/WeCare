@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { useDispatch } from 'react-redux';
 
 export default function UserLogin() {
 
@@ -8,8 +9,9 @@ export default function UserLogin() {
     const [password, setPassword] = useState('');
     const [validationErrors, setValidationErrors] = useState({ userId: '', password: '' });
     const [errorMessage, setErrorMessage] = useState('');
-    const [loginStatus, setLoginStatus] = useState('');
+    const [loginStatus, setLoginStatus] = useState(null);
     const navigate = useNavigate();
+    const dispatch = useDispatch(); // use of redux
 
     const validateForm = () => {
         const errors = {};
@@ -40,6 +42,8 @@ export default function UserLogin() {
                             toast.success('Login Successful');
                             localStorage.setItem('userId', userId);
                             setLoginStatus('success');
+                            dispatch({ type: 'SET_USER_TYPE', payload: 'user'}); // redux dispatch update 
+                            console.log(dispatch);
                             navigate('/UserHome');
                         } else {
                             toast.error('Invalid Password');
