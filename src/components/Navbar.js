@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 
 const Navbar = () => {
   const userType = useSelector((state) => state.userType); 
+  //const isLoggedIn = useSelector((state) => state.isLoggedIn); // update the isLoggedIn for below to the type
 
   // If userType is not defined (no user logged in), show generic navbar
   if (!userType) {

@@ -9,7 +9,7 @@ export default function UserLogin() {
     const [password, setPassword] = useState('');
     const [validationErrors, setValidationErrors] = useState({ userId: '', password: '' });
     const [errorMessage, setErrorMessage] = useState('');
-    const [loginStatus, setLoginStatus] = useState(null);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
     const navigate = useNavigate();
     const dispatch = useDispatch(); // use of redux
 
@@ -41,8 +41,9 @@ export default function UserLogin() {
                         if (resp[0].password === password) {
                             toast.success('Login Successful');
                             localStorage.setItem('userId', userId);
-                            setLoginStatus('success');
+                            setIsLoggedIn('true');
                             dispatch({ type: 'SET_USER_TYPE', payload: 'user'}); // redux dispatch update 
+                            dispatch({type: 'SET_USER_ID', payload:{userId}});
                             console.log(dispatch);
                             navigate('/UserHome');
                         } else {
@@ -80,7 +81,7 @@ export default function UserLogin() {
                 </form>
 
                 {errorMessage && <p className='text-danger'>{errorMessage}</p>}
-                {loginStatus && <p className='text-success'>{loginStatus} </p>}
+                {isLoggedIn && <p className='text-success'>{isLoggedIn} </p>}
 
 
             </div>
